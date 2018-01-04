@@ -16,8 +16,8 @@ module.exports = merge(baseConfig, {
   ],
 
   output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: './dist/'
+    path: path.join(__dirname, '../dist'),
+    publicPath: '../dist/'
   },
 
   module: {
@@ -110,8 +110,8 @@ module.exports = merge(baseConfig, {
     new ExtractTextPlugin('style.css'),
 
     new HtmlWebpackPlugin({
-      filename: '../app.html',
-      template: 'src/app.html',
+      filename: '../dist/app.html',
+      template: './src/app.html',
       inject: false
     })
   ],

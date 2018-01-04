@@ -13,7 +13,7 @@ module.exports = merge(baseConfig, {
 
   // 'main.js' in root
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, '../dist'),
     filename: 'main.js'
   },
 
