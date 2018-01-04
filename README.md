@@ -49,13 +49,12 @@ yarn package-linux
     * Work in progress
 
 ## Meta
-
-Twitter: [@navono1](https://twitter.com/navono1)
-</br>Email: navono007@gmail.com
+[![](https://img.shields.io/badge/twitter-@navono1-blue.svg)](https://twitter.com/navono1)
+</br>[![](https://img.shields.io/badge/email-@navono007-blue.svg)](navono007@gmail.com)
 
 
 ## License
-Distributed under the [MIT](https://github.com/navono/electron-boilerplate/blob/master/LICENSE) license.
+[![](https://img.shields.io/badge/license-MIT-000000.svg)](https://github.com/navono/electron-boilerplate/blob/master/LICENSE)
 
 ## Contributing
 
