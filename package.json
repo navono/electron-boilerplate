@@ -1,7 +1,7 @@
 {
-  "name": "electron-react-typescript-boilerplate",
-  "productName": "ElectronReactTypescript",
-  "version": "0.10.0",
+  "name": "electron-boilerplate",
+  "productName": "electron-boilerplate",
+  "version": "0.0.1",
   "description": "Electron application boilerplate based on TypeScript, React, React Router, Webpack, React Hot Loader for rapid application development",
   "main": "./dist/main.js",
   "scripts": {
@@ -45,8 +45,8 @@
     ]
   },
   "build": {
-    "productName": "ElectronReactTypescript",
-    "appId": "io.github.navono.ElectronReactTypescript",
+    "productName": "ElectronBoilerplate",
+    "appId": "io.github.navono.ElectronBoilerplate",
     "dmg": {
       "contents": [
         {
