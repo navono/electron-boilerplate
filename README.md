@@ -4,6 +4,7 @@ Electron boilerplate project.
 <!-- [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url] -->
+![](https://img.shields.io/badge/version-v0.0.1-519dd9.svg)
 ![](https://img.shields.io/badge/language-Typescript-orange.svg)
 
 <!-- One to two paragraph statement about your product and what it does.
@@ -50,7 +51,7 @@ yarn package-linux
 
 ## Meta
 [![](https://img.shields.io/badge/twitter-@navono1-blue.svg)](https://twitter.com/navono1)
-</br>[![](https://img.shields.io/badge/email-@navono007-blue.svg)](navono007@gmail.com)
+</br>[![](https://img.shields.io/badge/email-@navono007-blue.svg)](mailto:navono007@gmail.com)
 
 
 ## License
