@@ -46,7 +46,7 @@
   },
   "build": {
     "productName": "ElectronReactTypescript",
-    "appId": "io.github.irath96.ElectronReactTypescript",
+    "appId": "io.github.navono.ElectronReactTypescript",
     "dmg": {
       "contents": [
         {
@@ -89,16 +89,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/irath96/electron-react-typescript-boilerplate.git"
+    "url": "git+https://github.com/navono/electron-boilerplate.git"
   },
   "author": {
-    "name": "Alexander Rath",
-    "email": "irath96@gmail.com",
-    "url": "https://github.com/irath96"
+    "name": "Qixing Ping",
+    "email": "navono007@gmail.com",
+    "url": "https://github.com/navono"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/irath96/electron-react-typescript-boilerplate/issues"
+    "url": "https://github.com/navono/electron-boilerplate.git/issues"
   },
   "keywords": [
     "electron",
@@ -109,7 +109,7 @@
     "webpack",
     "react-hot"
   ],
-  "homepage": "https://github.com/irath96/electron-react-typescript-boilerplate#readme",
+  "homepage": "https://github.com/navono/electron-boilerplate.git#readme",
   "devDependencies": {
     "@types/enzyme": "^3.1.6",
     "@types/history": "^4.5.2",
