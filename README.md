@@ -7,9 +7,9 @@ Electron boilerplate project.
 ![](https://img.shields.io/badge/version-v0.0.1-519dd9.svg)
 ![](https://img.shields.io/badge/language-Typescript-orange.svg)
 
-<!-- One to two paragraph statement about your product and what it does.
+<!-- One to two paragraph statement about your product and what it does. -->
 
-![](header.png) -->
+![](erb-logo.png)
 
 ## Installation
 
