@@ -4,6 +4,7 @@ Electron boilerplate project.
 <!-- [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url] -->
+![](https://img.shields.io/badge/language-Typescript-orange.svg)
 
 <!-- One to two paragraph statement about your product and what it does.
 
