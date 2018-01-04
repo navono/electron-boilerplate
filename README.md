@@ -1,4 +1,4 @@
-# Product Name
+# electron-boilerplate
 Electron boilerplate project.
 
 <!-- [![NPM Version][npm-image]][npm-url]
