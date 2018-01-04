@@ -1,5 +1,5 @@
 # electron-boilerplate
-Electron boilerplate project.
+Electron boilerplate project with Typescript and React.
 
 <!-- [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
