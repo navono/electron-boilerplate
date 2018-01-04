@@ -6,6 +6,7 @@ const pattern = process.argv[2] === 'e2e'
   ? `test${s}e2e${s}.+\\.spec\\.tsx?`
   : `test${s}(?!e2e${s})[^${s}]+${s}.+\\.spec\\.tsx?$`;
 
+console.log(pattern);
 const result = spawn.sync(path.normalize('./node_modules/.bin/jest'), [pattern], { stdio: 'inherit' });
 
 process.exit(result.status);

@@ -14,7 +14,6 @@ export interface IProps extends RouteComponentProps<any> {
 
 export class Counter extends React.Component<IProps> {
   render() {
-    console.log('test');
     const { increment, incrementIfOdd, incrementAsync, decrement, counter } = this.props;
     return (
       <div>
