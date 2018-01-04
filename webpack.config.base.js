@@ -5,7 +5,7 @@
 const path = require('path');
 const {
   dependencies: externals
-} = require('./app/package.json');
+} = require('./src/package.json');
 
 module.exports = {
   module: {
@@ -31,7 +31,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx', '.json'],
     modules: [
-      path.join(__dirname, 'app'),
+      path.join(__dirname, 'src'),
       'node_modules',
     ]
   },

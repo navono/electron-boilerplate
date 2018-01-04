@@ -12,7 +12,7 @@ const baseConfig = require('./webpack.config.base');
 module.exports = merge(baseConfig, {
   devtool: 'cheap-module-source-map',
   entry: [
-    './app/index'
+    './src/index'
   ],
 
   output: {
@@ -111,7 +111,7 @@ module.exports = merge(baseConfig, {
 
     new HtmlWebpackPlugin({
       filename: '../app.html',
-      template: 'app/app.html',
+      template: 'src/app.html',
       inject: false
     })
   ],

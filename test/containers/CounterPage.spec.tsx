@@ -4,11 +4,11 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import CounterPage from '../../app/containers/CounterPage';
-import { IState } from '../../app/reducers';
+import CounterPage from '../../src/containers/CounterPage';
+import { IState } from '../../src/reducers';
 
 const CounterPageAny = CounterPage as any;
-let { configureStore, history } = require('../../app/store/configureStore');
+let { configureStore, history } = require('../../src/store/configureStore');
 
 function setup(initialState?: IState) {
   const store = configureStore(initialState);
