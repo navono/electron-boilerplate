@@ -4,8 +4,8 @@ import * as React from 'react';
 import { mount } from 'enzyme';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
-import CounterPage from '../../src/containers/CounterPage';
-import { IState } from '../../src/reducers';
+import CounterPage from '../../src/renderer/containers/CounterPage';
+import { IState } from '../../src/renderer/reducers';
 
 const CounterPageAny = CounterPage as any;
 let { configureStore, history } = require('../../src/store/configureStore');

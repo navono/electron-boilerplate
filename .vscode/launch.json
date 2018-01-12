@@ -14,7 +14,7 @@
       "windows": {
           "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
-      "program": "${workspaceRoot}/src/main.development.js",
+      "program": "${workspaceRoot}/src/main/main.development.js",
       "runtimeArgs": [
         "--enable-logging",
         "--remote-debugging-port=9223",

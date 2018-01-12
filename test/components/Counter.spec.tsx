@@ -3,7 +3,7 @@ import '../utils/enzymeConfig';
 import { spy } from 'sinon';
 import * as React from 'react';
 import { shallow } from 'enzyme';
-import Counter from '../../src/components/Counter';
+import Counter from '../../src/renderer/components/Counter';
 
 const CounterAny = Counter as any;
 

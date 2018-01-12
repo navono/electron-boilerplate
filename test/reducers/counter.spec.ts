@@ -1,5 +1,5 @@
-import counter from '../../src/reducers/counter';
-import { increment, decrement } from '../../src/actions/counter';
+import counter from '../../src/renderer/reducers/counter';
+import { increment, decrement } from '../../src/renderer/actions/counter';
 
 describe('reducers', () => {
   describe('counter', () => {
