@@ -1,10 +1,13 @@
 // document.write('test');
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { Hello } from './components/Hello';
+import { AppContainer } from 'react-hot-loader';
+import App from './containers/App';
 
 
 ReactDOM.render(
-  <Hello />,
+  <AppContainer>
+    <App />
+  </AppContainer>,
   document.getElementById('app')
 );
