@@ -6,18 +6,16 @@
     "jsx": "react",
     "lib": [
       "dom",
-      "es6",
-      "dom.iterable",
-      "scripthost"
+      "es6"
     ],
-    "types": [],
 
     "strictNullChecks": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
 
-    "outDir": "dist"
+    "outDir": "dist",
+    "rootDir": "src"
   },
   "include": [
     "src/**/*.ts",
