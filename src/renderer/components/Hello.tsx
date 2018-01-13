@@ -23,7 +23,7 @@ export class Hello extends React.Component<any, any> {
   public render() {
     return (
       <div>
-        <p>Hello, Electron. ACounter: {this.state.counter}</p>
+        <p>Hello, Electron. Counter a: {this.state.counter}</p>
         <button 
           name = "Update"
           onClick = { this.handleOnClick }

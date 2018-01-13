@@ -1,7 +1,7 @@
 {
   "name": "electron-boilerplate",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/navono/electron-boilerplate.git",
   "author": "navono <navono007@gmail.com>",
   "license": "MIT",
@@ -78,6 +78,12 @@
         "deb",
         "AppImage"
       ]
+    }
+  },
+  "electronWebpack": {
+    "renderer": {
+      "sourceDirectory": "src/renderer",
+      "webpackConfig": "./config/webpack.renderer.additions.js"
     }
   }
 }
