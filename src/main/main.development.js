@@ -4,12 +4,15 @@ let menu;
 let template;
 let mainWindow = null;
 
-if (process.env.NODE_ENV === 'production') {
+const isDev = process.env.NODE_ENV === 'development';
+const idProd = process.env.NODE_ENV === 'production';
+
+if (idProd) {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
   sourceMapSupport.install();
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (isDev) {
   require('electron-debug')(); // eslint-disable-line global-require
   const path = require('path'); // eslint-disable-line
   const p = path.join(__dirname, '..', 'app', 'node_modules'); // eslint-disable-line
@@ -45,7 +48,13 @@ app.on('ready', () =>
     height: 728
   });
 
-  mainWindow.loadURL(`file://${__dirname}/../renderer/app.html`);
+  let url = null;
+  if (isDev) {
+    url = `file://${__dirname}/../renderer/app.html`
+  } else {
+    url = `file://${__dirname}/app.html`;
+  }
+  mainWindow.loadURL(url);
 
   mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.show();
@@ -56,7 +65,7 @@ app.on('ready', () =>
     mainWindow = null;
   });
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     // mainWindow.openDevTools();
     mainWindow.webContents.on('context-menu', (e, props) => {
       const { x, y } = props;
@@ -240,6 +249,13 @@ app.on('ready', () =>
         accelerator: 'F11',
         click() {
           mainWindow.setFullScreen(!mainWindow.isFullScreen());
+        }
+      },
+      {
+        label: 'Toggle &Developer Tools',
+        accelerator: 'Alt+Ctrl+I',
+        click() {
+          mainWindow.toggleDevTools();
         }
       }]
     }, {

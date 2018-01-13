@@ -65,7 +65,7 @@
     "files": [
       "dist/",
       "node_modules/",
-      "src/renderer/app.html",
+      "app.html",
       "dist/main.js",
       "dist/main.js.map",
       "package.json"
