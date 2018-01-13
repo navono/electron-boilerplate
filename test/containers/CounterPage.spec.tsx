@@ -8,7 +8,7 @@ import CounterPage from '../../src/renderer/containers/CounterPage';
 import { IState } from '../../src/renderer/reducers';
 
 const CounterPageAny = CounterPage as any;
-let { configureStore, history } = require('../../src/store/configureStore');
+let { configureStore, history } = require('../../src/renderer/store/configureStore');
 
 function setup(initialState?: IState) {
   const store = configureStore(initialState);
