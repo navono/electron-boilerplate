@@ -5,9 +5,9 @@ let template;
 let mainWindow = null;
 
 const isDev = process.env.NODE_ENV === 'development';
-const idProd = process.env.NODE_ENV === 'production';
+const isProd = process.env.NODE_ENV === 'production';
 
-if (idProd) {
+if (isProd) {
   const sourceMapSupport = require('source-map-support'); // eslint-disable-line
   sourceMapSupport.install();
 }
@@ -25,7 +25,7 @@ app.on('window-all-closed', () => {
 
 
 const installExtensions = () => {
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev) {
     const installer = require('electron-devtools-installer'); // eslint-disable-line global-require
 
     const extensions = [

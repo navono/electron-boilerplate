@@ -21,7 +21,9 @@
     "package-win": "yarn run build && build --win --x64",
     "package-linux": "yarn run build && build --linux",
     "package-all": "yarn run build && build -mwl",
-    "cleanup": "mop -v"
+    "cleanup": "mop -v",
+    "server": "webpack-dev-server --config ./config/webpack.config.renderer.dev.js --progress --color",
+    "e": "electron ./dist/main.js"
   },
   "jest": {
     "moduleNameMapper": {
@@ -159,6 +161,7 @@
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-middleware": "^2.0.3",
+    "webpack-dev-server": "^2.10.1",
     "webpack-hot-middleware": "^2.21.0",
     "webpack-merge": "^4.1.1"
   },
