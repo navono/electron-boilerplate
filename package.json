@@ -7,13 +7,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "electron-webpack dev",
-    "compile": "electron-webpack",
-    "dist": "yarn compile && electron-builder",
+    "build": "electron-webpack",
+    "dist": "yarn build && electron-builder",
     "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null",
-    "package": "yarn compile && build --publish never",
-    "package-win": "yarn compile && build --win --x64",
-    "package-linux": "yarn compile&& build --linux",
-    "package-all": "yarn compile && build -mwl"
+    "package": "yarn build && build --publish never",
+    "package-win": "yarn build && build --win --x64",
+    "package-linux": "yarn build&& build --linux",
+    "package-all": "yarn build && build -mwl"
   },
   "devDependencies": {
     "@types/react": "^16.0.34",
