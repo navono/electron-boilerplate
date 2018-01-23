@@ -5,11 +5,18 @@
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const baseConfig = require('./webpack.config.base');
+const commonConfig = require('./webpack.config.common');
 
-module.exports = merge(baseConfig, {
+module.exports = merge(commonConfig, {
+  /**
+   * Set target to Electron specific node.js env.
+   * https://github.com/chentsulin/webpack-target-electron-renderer#how-this-module-works
+   */
+  target: 'electron-main',
+
   devtool: 'source-map',
-  entry: ['./src/main/main.development'],
+
+  entry: ['./main/index'],
 
   // 'main.js' in root
   output: {
@@ -30,12 +37,6 @@ module.exports = merge(baseConfig, {
       }
     })
   ],
-
-  /**
-   * Set target to Electron specific node.js env.
-   * https://github.com/chentsulin/webpack-target-electron-renderer#how-this-module-works
-   */
-  target: 'electron-main',
 
   /**
    * Disables webpack processing of __dirname and __filename.

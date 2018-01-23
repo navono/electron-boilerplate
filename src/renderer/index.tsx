@@ -1,27 +1,33 @@
 import * as React from 'react';
-import { render } from 'react-dom';
+import * as ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import Root from './containers/Root';
-import './app.global.scss';
 
-const { configureStore, history } = require('./store/configureStore');
-const store = configureStore();
+import App from './components/App';
 
-render(
-  <AppContainer>
-    <Root store={store} history={history} />
-  </AppContainer>,
-  document.getElementById('root')
-);
+// Tell Typescript that there is a global variable called module - see below
+declare var module: { hot: any };
 
-if ((module as any).hot) {
-  (module as any).hot.accept('./containers/Root', () => {
-    const NextRoot = require('./containers/Root').default;
-    render(
-      <AppContainer>
-        <NextRoot store={store} history={history} />
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
+const render = (Component: any) => {
+  ReactDOM.render(
+    <AppContainer>
+      <Component />
+    </AppContainer>,
+    document.getElementById('app')
+  );
 }
+
+render(App);
+
+if (module.hot) {
+  module.hot.accept();
+
+  // module.hot.accept('./components/App', () => {
+  //    // If we receive a HMR request for our App container, then reload it using require (we can't do this dynamically with import)
+  //    const NextApp = require('./components/App').default;
+
+  //    // And render it into the root element again
+  //    render(NextApp);
+  // });
+}
+
+
