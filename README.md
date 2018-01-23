@@ -28,6 +28,10 @@ yarn install
 
 ### Development
 
+`master`分支使用的是`webpack-hot-middleware`与`webpack-dev-middleware`来实现`HMR`。同时没有实现`React`的`HMR`。
+
+`webpack-dev-server`分支使用的是`webpack-dev-server`来实现`HMR`。同时使用了`react-hot-loader`来实现`React`的`HMR`，但是目前（v0.1.0）没有加入测试功能。
+
 ```sh
 yarn dev
 ```
