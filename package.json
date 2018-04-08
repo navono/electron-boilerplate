@@ -1,6 +1,6 @@
 {
-  "name": "flowchart",
-  "version": "0.0.0",
+  "name": "electron-demo",
+  "version": "0.1.0",
   "main": "./dist/main.js",
   "license": "MIT",
   "scripts": {
@@ -45,8 +45,8 @@
     "react-dom": "^16.2.0"
   },
   "build": {
-    "productName": "Flowchart",
-    "appId": "io.github.navono.Flowchart",
+    "productName": "electron-demo",
+    "appId": "io.github.navono.electron-demo",
     "dmg": {
       "contents": [
         {
