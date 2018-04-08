@@ -18,6 +18,9 @@ const devConfig = merge(
       hot: true,
       port: PORT,
       historyApiFallback: true,
+      stats: {
+        colors: true,
+      }
     },
 
     entry: [

@@ -1,10 +1,15 @@
 {
   "defaultSeverity": "error",
-  "extends": ["tslint:latest", "tslint-react"],
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
   "jsRules": {},
   "rules": {
-    "quotemark": [true, "single", "jsx-double"],
-    "object-literal-sort-keys": false
+    "quotemark": [true, "single"],
+    "object-literal-sort-keys": false,
+    "no-implicit-dependencies": [true, "dev"]
   },
   "rulesDirectory": []
 }

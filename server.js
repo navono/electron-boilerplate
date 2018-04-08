@@ -6,7 +6,8 @@ const { spawn } = require('child_process');
 const argv = require('minimist')(process.argv.slice(1));
 
 const compiler = webpack(devConfig);
-const server = new webpackDevServer(compiler, devConfig.devServer).listen(PORT, 'localhost', function (err, result) {
+const server = new webpackDevServer(compiler, devConfig.devServer)
+  .listen(PORT, 'localhost', function (err, result) {
   if (err) return console.error(err);
 
   console.log(`webpack-dev-server listening at http://localhost:${PORT}`);
