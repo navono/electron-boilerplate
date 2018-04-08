@@ -12,9 +12,9 @@ const render = (Component: any) => {
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('app')
+    document.getElementById('app'),
   );
-}
+};
 
 render(App);
 
@@ -22,12 +22,11 @@ if (module.hot) {
   module.hot.accept();
 
   // module.hot.accept('./components/App', () => {
-  //    // If we receive a HMR request for our App container, then reload it using require (we can't do this dynamically with import)
+  //    // If we receive a HMR request for our App container,
+  //    // then reload it using require (we can't do this dynamically with import)
   //    const NextApp = require('./components/App').default;
 
   //    // And render it into the root element again
   //    render(NextApp);
   // });
 }
-
-
