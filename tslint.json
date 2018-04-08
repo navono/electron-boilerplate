@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-implicit-dependencies": [true, "dev"],
+    "quotemark": [true, "single"],
+    "ordered-imports": false,
+    "no-var-requires": false,
+    "no-empty-interface": false
+  }
+}

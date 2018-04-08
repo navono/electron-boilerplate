@@ -14,7 +14,7 @@ module.exports = merge(baseConfig, {
   // 'main.js' in root
   output: {
     path: path.join(__dirname, '../dist'),
-    filename: 'main.js'
+    filename: 'main.js',
   },
 
   plugins: [
@@ -26,9 +26,9 @@ module.exports = merge(baseConfig, {
     // ),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
-    })
+        NODE_ENV: JSON.stringify('production'),
+      },
+    }),
   ],
 
   /**
@@ -44,6 +44,6 @@ module.exports = merge(baseConfig, {
    */
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
 });

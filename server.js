@@ -20,8 +20,8 @@ const PORT = process.env.PORT || 3000;
 const wdm = webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath,
   stats: {
-    colors: true
-  }
+    colors: true,
+  },
 });
 
 app.use(wdm);
@@ -34,7 +34,11 @@ const server = app.listen(PORT, 'localhost', serverError => {
   }
 
   if (argv['start-hot']) {
-    spawn('npm', ['run', 'start-hot'], { shell: true, env: process.env, stdio: 'inherit' })
+    spawn('npm', ['run', 'start-hot'], {
+      shell: true,
+      env: process.env,
+      stdio: 'inherit'
+    })
       .on('close', code => process.exit(code))
       .on('error', spawnError => console.error(spawnError));
   }
