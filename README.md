@@ -32,6 +32,8 @@ yarn install
 
 `webpack-dev-server`分支使用的是`webpack-dev-server`来实现`HMR`。同时使用了`react-hot-loader`来实现`React`的`HMR`，但是目前（v0.1.0）没有加入测试功能。
 
+`next`分支是全新的分支。集成了`antd`,`Webpack V4`,`react-hot-loader V4`。
+
 ```sh
 yarn dev
 ```
