@@ -7,44 +7,42 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Electron: Main",
+      "name": "Electron: Debug Main",
       "protocol": "inspector",
-      "cwd": "${workspaceRoot}/dist",
-      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
       "windows": {
-          "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+        "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd"
       },
-      "program": "${workspaceRoot}/src/main/main.development.js",
+      "program": "${workspaceFolder}/app/main/index.js",
       "runtimeArgs": [
         "--enable-logging",
         "--remote-debugging-port=9223",
       ],
-      "env": {
-        "NODE_ENV": "development"
-      },
-      "sourceMaps": true,
-      "outFiles": [
-          "${workspaceRoot}/dist/**/*.js"
-      ],
       "internalConsoleOptions": "openOnSessionStart",
       "console": "integratedTerminal",
+      "sourceMapPathOverrides": {
+        "webpack:///*": "${cwd}/app/*",
+      }
     },
     {
-      "name": "Electron: Renderer",
+      "name": "Electron: Attach Renderer",
       "type": "chrome",
       "request": "attach",
       "port": 9223,
-      "webRoot": "${workspaceRoot}/dist",
-      "timeout": 10000,
+      "timeout": 15000,
       "sourceMaps": true,
+      "trace": true,
+      "sourceMapPathOverrides": {
+        "webpack:///*": "${cwd}/app/*",
+      }
     }
   ],
   "compounds": [
     {
       "name": "Electron: All",
       "configurations": [
-          "Electron: Main",
-          "Electron: Renderer"
+          "Electron: Debug Main",
+          "Electron: Attach Renderer"
       ]
     }
   ]

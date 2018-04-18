@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "moduleResolution": "node",
-    "module": "commonjs",
+    "target": "ES6",
+    "module": "Commonjs",
     "jsx": "react",
+    "sourceMap": true,
+    "sourceRoot": "./app",
     "lib": [
       "dom",
       "es6",
@@ -21,22 +22,12 @@
     
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-
-    "sourceMap": true,
-
-    "outDir": "dist"
   },
-  "files": [
-    "src/renderer/index.tsx"
-  ],
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "test/**/*.ts",
-    "test/**/*.tsx",
-    "node_modules/@types/**/*.d.ts"
+    "app/**/*"
   ],
   "exclude": [
-    "dist"
+    "dist",
+    "node_modules"
   ]
 }

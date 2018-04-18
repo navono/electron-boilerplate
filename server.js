@@ -1,54 +1,31 @@
-/**
- * Setup and run the development server for Hot-Module-Replacement
- * https://webpack.github.io/docs/hot-module-replacement-with-webpack.html
- */
+// 首先启动 `webpack-dev-server`，然后将渲染页面加载起来并进行监听，
+// 然后就是启动 `electron`，加载上面 `webpack-dev-server` 监听的 `url`
 
-const express = require('express');
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
-const webpackHotMiddleware = require('webpack-hot-middleware');
+const webpackDevServer = require('webpack-dev-server');
+const devConfig = require('./config/webpack.config.renderer');
 const { spawn } = require('child_process');
 
-const config = require('./config/webpack.config.development');
+const PORT = process.env['PORT'] || 3080;
+const argv = require('minimist')(process.argv.slice(1));
 
-const argv = require('minimist')(process.argv.slice(2));
+const compiler = webpack(devConfig);
+const server = new webpackDevServer(compiler, devConfig.devServer)
+  .listen(PORT, 'localhost', function (err, result) {
+    if (err) return console.error(err);
 
-const app = express();
-const compiler = webpack(config);
-const PORT = process.env.PORT || 3000;
+    console.log(`webpack-dev-server listening at http://localhost:${PORT}`);
 
-const wdm = webpackDevMiddleware(compiler, {
-  publicPath: config.output.publicPath,
-  stats: {
-    colors: true,
-  },
-});
-
-app.use(wdm);
-
-app.use(webpackHotMiddleware(compiler));
-
-const server = app.listen(PORT, 'localhost', serverError => {
-  if (serverError) {
-    return console.error(serverError);
-  }
-
-  if (argv['start-hot']) {
-    spawn('npm', ['run', 'start-hot'], {
-      shell: true,
-      env: process.env,
-      stdio: 'inherit'
-    })
+    // 区别直接从 `webpack-de-server` 启动，还是从VS Code 调试启动
+    if (!argv['debug']) {
+      spawn('yarn', ['electron', `PORT=${PORT}`, `--enable-logging`, `--remote-debugging-port=9223`], { shell: true, env: process.env, stdio: 'inherit' })
       .on('close', code => process.exit(code))
       .on('error', spawnError => console.error(spawnError));
-  }
-
-  console.log(`Listening at http://localhost:${PORT}`);
-});
+    }
+  });
 
 process.on('SIGTERM', () => {
   console.log('Stopping dev server');
-  wdm.close();
   server.close(() => {
     process.exit(0);
   });

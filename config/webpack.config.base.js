@@ -1,40 +1,104 @@
-/**
- * Base webpack config used across other specific configs
- */
-
 const path = require('path');
-const { dependencies: externals } = require('../src/package.json');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TsImportPluginFactory = require('ts-import-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const fs = require("fs");
+const lessToJs = require("less-vars-to-js");
 
-module.exports = {
+const themeVariables = lessToJs(
+  fs.readFileSync(path.join(__dirname, "../theme.less"), "utf8"),
+);
+
+// lessToJs does not support @icon-url: "some-string", so we are manually adding it to the produced themeVariables js object here
+themeVariables["@icon-url"] = '"/public/iconfont/iconfont"';
+
+const baseConfig = {
+  // absolute path for project root
+  context: path.resolve(__dirname, '../app'),
+
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.ts[x]?$/,
-        loaders: ['react-hot-loader/webpack', 'ts-loader'],
+        enforce: "pre",
+        test: /\.js$/,
+        loader: "source-map-loader"
+      },
+      {
+        test: /\.tsx?$/,
+        include: /app/,
         exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              babelrc: true,
+              plugins: ['react-hot-loader/babel'],
+            },
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              getCustomTransformers: () => ({
+                before: [ TsImportPluginFactory({
+                  libraryName: 'antd',
+                  libraryDirectory: 'es',
+                  style: true,
+                }) ]
+              }),
+              compilerOptions: {
+                module: "es2015",
+              }
+            },
+          }
+        ]
       },
       {
-        test: /\.json$/,
-        loader: 'json-loader',
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "postcss-loader",
+            options: {
+              plugins: () => [require("autoprefixer")],
+            },
+          },
+        ],
       },
-    ],
+      {
+        test: /\.less$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              modifyVars: themeVariables,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      }
+    ]
   },
 
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: 'bundle.js',
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
 
-    // https://github.com/webpack/webpack/issues/1114
-    libraryTarget: 'commonjs2',
-  },
+    new ForkTsCheckerWebpackPlugin({
+      tsconfig: path.resolve(__dirname, '../tsconfig.json')
+    }),
+  ],
 
-  // https://webpack.github.io/docs/configuration.html#resolve
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-    modules: [path.join(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
   },
-
-  plugins: [],
-
-  externals: Object.keys(externals || {}),
 };
+
+module.exports = baseConfig;
