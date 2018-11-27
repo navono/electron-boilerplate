@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "cross-env PORT=3080 NODE_ENV=development node config/webpackDevServer.js",
-    "dev:electron": "yarn build:dev && cross-env NODE_ENV=development electron ./build/main.js",
+    "dev:electron": "yarn build && cross-env NODE_ENV=development electron ./build/main.js",
     "build": "yarn clean:build && concurrently \"yarn build:dev:main \" \"yarn build:dev:renderer\"",
     "build:dev:main": "cross-env webpack --config ./config/webpack.config.main.js --progress --profile --colors",
     "build:dev:renderer": "cross-env webpack --config ./config/webpack.config.renderer.js --progress --profile --colors",
