@@ -2,7 +2,7 @@
   "name": "electron-boilerplate",
   "version": "0.1.0",
   "main": "./build/main.js",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "cross-env PORT=3080 NODE_ENV=development node config/webpackDevServer.js",
     "dev:electron": "yarn build && cross-env NODE_ENV=development electron ./build/main.js",
