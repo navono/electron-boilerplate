@@ -81,8 +81,8 @@
     "last 5 versions"
   ],
   "build": {
-    "productName": "AppDev",
-    "appId": "supcon.appdev",
+    "productName": "electron-boilerplate",
+    "appId": "example.electron-boilerplate",
     "files": [
       "build/",
       "node_modules/",

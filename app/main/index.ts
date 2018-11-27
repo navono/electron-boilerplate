@@ -7,13 +7,6 @@ let mainWindow: BrowserWindow | null;
 const dev = process.env.NODE_ENV === 'development';
 const PORT = process.env.PORT || 3080;
 
-// crashReporter.start({
-//   productName: 'AppDev',
-//   companyName: 'SUPCON',
-//   submitURL: `http://192.168.200.101:9000/api/api-crashes`,
-//   uploadToServer: true,
-// });
-
 const installExtensions = async () => {
   if (dev) {
     const {
