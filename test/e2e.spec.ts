@@ -4,14 +4,14 @@ import { Application } from 'spectron';
 import 'jest';
 
 let electronPath = path.join(__dirname, '../node_modules', '.bin', 'electron');
-// const appPath = path.join(__dirname, '../build');
 if (process.platform === 'win32') {
   electronPath += '.cmd';
 }
 
 jest.setTimeout(30000);
-// const delay = (time: number) =>
-//   new Promise(resolve => setTimeout(resolve, time));
+
+const delay = (time: number) =>
+  new Promise(resolve => setTimeout(resolve, time));
 
 describe('main window', () => {
   let app: Application;
@@ -19,7 +19,7 @@ describe('main window', () => {
   beforeAll(async () => {
     app = new Application({
       path: electronPath,
-      args: [path.join(__dirname, '..', 'dist', 'main.js')],
+      args: [path.join(__dirname, '..', 'build', 'main.js')],
       env: { NODE_ENV: 'test' },
     });
     return app.start();
@@ -32,24 +32,12 @@ describe('main window', () => {
     return undefined;
   });
 
-  it('shows an initial window', () => {
-    console.log('app', app);
-    expect(2).toBe(2);
+  it('should open window', async () => {
+    const { client, browserWindow } = app;
 
-    // return app.client.getWindowCount().then((count: number) => {
-    //   // Please note that getWindowCount() will return 2 if `dev tools` are opened.
-    //   // assert.equal(count, 2)
-    //   expect(count).toBe(2);
-    // });
+    await client.waitUntilWindowLoaded();
+    await delay(500);
+    const title = await browserWindow.getTitle();
+    expect(title).toBe('Electron');
   });
-
-  // it('should open window', async () => {
-  //   const { client, browserWindow } = this.app;
-  //   console.log('app', this.app);
-
-  //   await client.waitUntilWindowLoaded();
-  //   await delay(500);
-  //   const title = await browserWindow.getTitle();
-  //   expect(title).toBe('Electron');
-  // });
 });
